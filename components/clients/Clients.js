@@ -24,32 +24,41 @@ const Clients = () => {
   }
   return (
     <div className="container">
-      <form className="input-group" onSubmit={handleSubmit}>
-        <span className="input-group-text">Nuevo cliente</span>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Agregar un nuevo cliente"
-          value={name}
-          onChange={event => setName(event.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="Monto cuota"
-          className="form-control"
-          value={cuota}
-          onChange={event => setCuota(event.target.value)}
-        />
-        <input
-          type="number"
-          placeholder="identificador"
-          className="form-control"
-          value={id}
-          onChange={event => setId(event.target.value)}
-        />
-        <button className="btn btn-success" type="submit">
-          Agregar
-        </button>
+      <form className="mb-3" onSubmit={handleSubmit}>
+        <div className="input-group my-3">
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Agregar un nuevo cliente"
+            value={name}
+            onChange={event => setName(event.target.value)}
+          />
+        </div>
+
+        <div className="input-group my-3">
+          <input
+            type="number"
+            placeholder="Monto cuota"
+            className="form-control"
+            value={cuota}
+            onChange={event => setCuota(event.target.value)}
+          />
+        </div>
+        <div className="input-group my-3">
+          <input
+            type="number"
+            placeholder="identificador"
+            className="form-control"
+            value={id}
+            onChange={event => setId(event.target.value)}
+          />
+        </div>
+
+        <div className="input-group">
+          <button className="btn btn-success" type="submit">
+            Agregar
+          </button>
+        </div>
       </form>
       <div className="text-center my-2">
         <h3>Clientes</h3>
