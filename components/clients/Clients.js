@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react"
 const formatThousands = require("format-thousands")
 
+import SubmitButton from "../SubmitButton/SubmitButton"
+
 const Clients = () => {
   const [client, setClient] = useState({})
   const [allClients, setAllClients] = useState([])
@@ -54,10 +56,8 @@ const Clients = () => {
           />
         </div>
 
-        <div className="input-group">
-          <button className="btn btn-success" type="submit">
-            Agregar
-          </button>
+        <div className="input-group text-center d-flex justify-content-center pb-3">
+          <SubmitButton onButtonClick={handleSubmit} />
         </div>
       </form>
       <div className="text-center my-2">
