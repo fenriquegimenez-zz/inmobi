@@ -12,6 +12,7 @@
   "dependencies": {
     "bootstrap": "^5.0.0",
     "clsx": "^1.1.1",
+    "format-thousands": "^2.0.0",
     "isomorphic-unfetch": "^3.1.0",
     "next": "^10.2.0",
     "react": "^17.0.2",

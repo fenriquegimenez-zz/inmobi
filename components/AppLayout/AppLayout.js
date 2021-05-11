@@ -1,6 +1,6 @@
-import React from "react";
-import Navbar from "../Navbar/Navbar";
-import Footer from "../Footer/Footer";
+import React from "react"
+import Navbar from "../Navbar/Navbar"
+import Footer from "../Footer/Footer"
 
 const AppLayout = ({ children }) => {
   return (
@@ -9,7 +9,7 @@ const AppLayout = ({ children }) => {
       {children}
       <Footer />
     </main>
-  );
-};
+  )
+}
 
-export default AppLayout;
+export default AppLayout
