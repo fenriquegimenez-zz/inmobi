@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useRef } from "react"
 const formatThousands = require("format-thousands")
 
 import SubmitButton from "../SubmitButton/SubmitButton"
@@ -9,9 +9,10 @@ const Clients = () => {
   const [name, setName] = useState("")
   const [cuota, setCuota] = useState("")
   const [id, setId] = useState("")
+  const inputRef = useRef(null)
 
   useEffect(() => {
-    document.getElementById("name").focus()
+    inputRef.current.focus()
   }, [])
 
   function addClient() {
@@ -47,7 +48,7 @@ const Clients = () => {
             className="form-control"
             placeholder="Agregar un nuevo cliente"
             value={name}
-            id="name"
+            ref={inputRef}
             onChange={event => setName(event.target.value)}
           />
         </div>
