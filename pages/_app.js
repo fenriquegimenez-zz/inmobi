@@ -1,10 +1,23 @@
 // import App from 'next/app'
 import AppLayout from "../components/AppLayout/AppLayout"
 import "bootstrap/dist/css/bootstrap.min.css"
+import { useRouter } from "next/router"
+import Head from "next/head"
+import { titleCase } from "title-case"
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter()
+  const pageTitle = router.pathname.split("/")[1]
+
   return (
     <AppLayout>
+      <Head>
+        {pageTitle ? (
+          <title>{titleCase(pageTitle)}</title>
+        ) : (
+          <title>Home</title>
+        )}
+      </Head>
       <Component {...pageProps} />
     </AppLayout>
   )
