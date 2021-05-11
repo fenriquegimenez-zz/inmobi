@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }) {
         {pageTitle ? (
           <title>{titleCase(pageTitle)}</title>
         ) : (
-          <title>Home</title>
+          <title>Inmobi - demo</title>
         )}
       </Head>
       <Component {...pageProps} />
