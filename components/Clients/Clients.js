@@ -10,11 +10,22 @@ const Clients = () => {
   const [cuota, setCuota] = useState("")
   const [id, setId] = useState("")
 
+  useEffect(() => {
+    document.getElementById("name").focus()
+  }, [])
+
+  function addClient() {
+    setClient({ ...client, name, cuota, id })
+  }
+
+  function addClients() {
+    if (client) setAllClients([...(allClients || []), client])
+  }
   function handleSubmit(event) {
     event.preventDefault()
     if (!name || !cuota || !id) return
-    setClient({ ...client, name, cuota, id })
-    if (client) setAllClients([...(allClients || []), client])
+    addClient()
+    addClients()
     console.log("all clients: ", allClients)
 
     setName("")
@@ -22,10 +33,13 @@ const Clients = () => {
     setId("")
   }
   function handleDeleteButton(id) {
-    allClients.filter(cl => id !== cl.id)
+    allClients.filter(client => id !== client.id)
   }
   return (
     <div className="container">
+      <div className="text-center my-2">
+        <h3>Crear clientes</h3>
+      </div>
       <form className="mb-3" onSubmit={handleSubmit}>
         <div className="input-group my-3">
           <input
@@ -33,6 +47,7 @@ const Clients = () => {
             className="form-control"
             placeholder="Agregar un nuevo cliente"
             value={name}
+            id="name"
             onChange={event => setName(event.target.value)}
           />
         </div>
@@ -60,9 +75,7 @@ const Clients = () => {
           <SubmitButton onButtonClick={handleSubmit} />
         </div>
       </form>
-      <div className="text-center my-2">
-        <h3>Clientes</h3>
-      </div>
+
       {allClients.length ? (
         <table className="table table-striped">
           <thead>
@@ -73,14 +86,14 @@ const Clients = () => {
             </tr>
           </thead>
           <tbody>
-            {allClients.map(cli => (
+            {allClients.map(client => (
               <tr>
-                <td>{cli.name}</td>
-                <td>{formatThousands(cli.cuota)}</td>
-                <td>{cli.id}</td>
+                <td>{client.name}</td>
+                <td>{formatThousands(client.cuota)}</td>
+                <td>{client.id}</td>
                 <td>
                   <button
-                    onClick={() => handleDeleteButton(cli.id)}
+                    onClick={() => handleDeleteButton(client.id)}
                     className="btn btn-danger btn-sm"
                   >
                     Borrar
